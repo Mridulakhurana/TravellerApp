@@ -14,15 +14,24 @@
         android:layout_height="150dp"
         android:background="@color/colorPrimaryDark">
 
-    <androidx.appcompat.widget.SearchView
-        android:background="#C8BBE4"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center" />
 
+
+<SearchView
+    android:background="#C8BBE4"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    app:queryHint="Search Place"
+    app:iconifiedByDefault="false"
+    android:id="@+id/search_bar"
+    android:layout_gravity="center"
+/>
     </FrameLayout>
-
+    <ListView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:id="@+id/listview"/>
     <ScrollView
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"

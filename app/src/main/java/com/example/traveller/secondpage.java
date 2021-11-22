@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +44,9 @@ public class secondpage extends AppCompatActivity {
     LinearLayout play;
     Double lat;
     Double lon;
+    SearchView mySearchView;
+    ListView list;
+    ArrayAdapter<String> adapter;
 
     String []states = {"shimla","kolkata","jodhpur","spiti","kerala"};
 
@@ -52,6 +56,26 @@ public class secondpage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secondpage);
         play = findViewById(R.id.play);
+        mySearchView = (SearchView) findViewById(R.id.search_bar);
+        list = findViewById(R.id.listview);
+        list.setVisibility(View.GONE);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, states);
+        list.setAdapter(adapter);
+        mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                list.setVisibility(View.GONE);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                list.setVisibility(View.VISIBLE);
+                adapter.getFilter().filter(s);
+                return false;
+            }
+        });
+        list.setVisibility(View.GONE);
         View.OnClickListener btnClick = new View.OnClickListener() {
             @Override
             public void onClick(View v) {

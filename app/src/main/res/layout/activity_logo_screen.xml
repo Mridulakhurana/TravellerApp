@@ -6,16 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".logoScreen"
     android:orientation="vertical"
-    android:background="@color/colorAccent">
+    >
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="bottom">
         <ImageView
-            android:layout_gravity="bottom"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/clouds"
+            android:src="@drawable/bgfinal"
             android:scaleType="centerCrop"/>
         <LinearLayout
             android:layout_width="match_parent"
